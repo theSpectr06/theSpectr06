@@ -1,0 +1,36 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: '30 0 * * *'   # runs daily at 00:30 UTC
+  workflow_dispatch:        # allows manual trigger from the Actions tab
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r cache/requirements.txt
+
+      - name: Run update script
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          USER_NAME: theSpectr06
+        run: python today.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dark.svg light.svg
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update stats [skip ci]"
+          git push
