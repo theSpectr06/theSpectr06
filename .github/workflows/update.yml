@@ -5,6 +5,9 @@ on:
     - cron: '30 0 * * *'   # runs daily at 00:30 UTC
   workflow_dispatch:        # allows manual trigger from the Actions tab
 
+permissions:
+  contents: write
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
