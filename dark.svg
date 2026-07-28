@@ -36,7 +36,7 @@ text, tspan { white-space: pre; }
 <tspan x="20" y="262" class="dim">  </tspan><tspan class="key">WM      </tspan><tspan class="value">Hyprland + Quickshell</tspan>
 <tspan x="20" y="282" class="dim">  </tspan><tspan class="key">Shell   </tspan><tspan class="value">Fish</tspan>
 <tspan x="20" y="302" class="dim">  </tspan><tspan class="key">Editor  </tspan><tspan class="value">Neovim</tspan>
-<tspan x="20" y="322" class="dim">  </tspan><tspan class="key">Uptime  </tspan><tspan class="value" id="age_data">218 days</tspan>
+<tspan x="20" y="322" class="dim">  </tspan><tspan class="key">Uptime  </tspan><tspan class="value" id="age_data">219 days</tspan>
 </text>
 
 <text x="20" y="354" font-size="14px">
