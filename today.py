@@ -81,7 +81,11 @@ def graph_repos_stars(count_type, owner_affiliation, cursor=None):
     if count_type == 'repos':
         return data['totalCount']
     elif count_type == 'stars':
-        stars = sum(node['node']['stargazers']['totalCount'] for node in data['edges'])
+        stars = sum(
+            node['node']['stargazers']['totalCount']
+            for node in data['edges']
+            if node.get('node') is not None
+        )
         if data['pageInfo']['hasNextPage']:
             stars += graph_repos_stars('stars', owner_affiliation, data['pageInfo']['endCursor'])
         return stars
